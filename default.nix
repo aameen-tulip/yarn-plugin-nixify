@@ -20,8 +20,10 @@ in stdenv.mkDerivation {
   version = "0.1.0";
   src = nix-gitignore.gitignoreSourcePure [
     "*.nix"
+    "*.md"
     "node_modules/"
-    ".yarn/cache/"
+    ".yarn/"        # We use NPM
+    "yarn.lock"
     "dist/"
   ] ( lib.cleanSource ./. );
   nativeBuildInputs = [nodejs];
